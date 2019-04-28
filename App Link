@@ -228,6 +228,7 @@ READ ME
     output  :
         respCode
         message
+        
 respCode list
 0   : success
 1   : error authentication
