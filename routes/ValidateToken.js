@@ -11,7 +11,8 @@ function validateToken(req, res, next){
         if (err || !config) {
             return res.status(500).send({ respCode:'99',message:'Internal Server Error.'});
         }
-        jwt.verify(token, config.value , function(err, decoded) {
+
+        jwt.verify(token, config._id.toString() , function(err, decoded) {
             if (err) {
                 return res.status(401).send({ respCode: '4', message: 'Failed to authenticate token.' });
             }else{

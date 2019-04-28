@@ -5,7 +5,7 @@ function getSecureKey(req, res, next) {
         if (err || !config) {
             return res.status(500).send({ respCode: '99',message:'Internal Server Error.'});
         }
-        req.keyvalue  = config.value;
+        req.keyvalue  = config._id.toString();
         next();
     });
 

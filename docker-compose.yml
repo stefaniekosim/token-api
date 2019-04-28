@@ -1,0 +1,25 @@
+version: "3.5"
+networks:
+  mynetwork:
+    driver: bridge
+
+services:
+  app:
+    container_name: token-api-stefanie
+    restart: always
+    build: .
+    ports:
+      - "14101:14101"
+    volumes:
+      - .:/app
+    links:
+      - mongo
+    networks:
+      - mynetwork
+  mongo:
+    container_name: stefanie-token-mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - mynetwork
